@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using QuantumVault.Application.Features.Commands.BranchCommands.CreateBranch;
+using QuantumVault.Application.Features.Commands.BranchCommands.UpdateBranch;
 using QuantumVault.Application.Features.Queries.BranchesQuery.GetAllBranch;
 using QuantumVault.Application.Features.Queries.BranchesQuery.GetBranch;
 using QuantumVault.Domain;
@@ -16,6 +18,8 @@ namespace QuantumVault.Application.MappingProfiles
         {
             CreateMap<Branch, BranchDTO>().ReverseMap();
             CreateMap<Branch, AllBranchDTO>().ReverseMap();
+            CreateMap<Branch, CreateBranchCommand>().ReverseMap();
+            CreateMap<Branch, UpdateBranchCommand>().ReverseMap();
         }
     }
 }

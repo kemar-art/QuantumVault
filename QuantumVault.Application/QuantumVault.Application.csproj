@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Commands\AccountTypeCommands\UpdateAccountType\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\QuantumVault.Domain\QuantumVault.Domain.csproj" />
   </ItemGroup>
 

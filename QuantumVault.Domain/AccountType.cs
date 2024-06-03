@@ -13,7 +13,5 @@ public class AccountType
 {
     [Key]
     public Guid Id { get; set; }
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int AccountNumber { get; set; }
     public string TypeName { get; set; } = string.Empty;
 }

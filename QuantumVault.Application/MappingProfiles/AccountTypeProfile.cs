@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using QuantumVault.Application.Features.Commands.AccountType.CreateAccountType;
-using QuantumVault.Application.Features.Queries.Account.GetAccount;
-using QuantumVault.Application.Features.Queries.AccountType.GetAllAccountsType;
+using QuantumVault.Application.Features.Commands.AccountTypeCommands.CreateAccountType;
+using QuantumVault.Application.Features.Commands.AccountTypeCommands.UpdateAccountType;
+using QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAccount;
+using QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAllAccountsType;
 using QuantumVault.Domain;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,6 @@ public class AccountTypeProfile : Profile
         CreateMap<AccountType, AccountTypeDTO>().ReverseMap();
         CreateMap<AccountType, AllAccountsTypeDTO>().ReverseMap();
         CreateMap<AccountType, CreateAccountTypeCommand>().ReverseMap();
+        CreateMap<AccountType, UpdateAccountTypeCommand>().ReverseMap();
     }
 }

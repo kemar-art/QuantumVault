@@ -15,13 +15,6 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.CreateA
                 .NotNull()
                 .NotEmpty()
                 .WithMessage("{PropertyName} is required.");
-
-            RuleFor(p => p.AccountNumber)
-               .NotNull()
-               .NotEmpty()
-               .WithMessage("{PropertyName} is required.");
-
-
         }
     }
 }

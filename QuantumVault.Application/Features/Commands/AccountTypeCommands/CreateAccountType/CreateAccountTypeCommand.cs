@@ -9,7 +9,6 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.CreateA
 {
     public class CreateAccountTypeCommand : IRequest<Guid>
     {
-        public int AccountNumber { get; set; }
         public string TypeName { get; set; } = string.Empty; 
     }
 }

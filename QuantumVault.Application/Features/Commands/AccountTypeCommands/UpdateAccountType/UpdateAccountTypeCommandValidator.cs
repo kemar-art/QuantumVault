@@ -25,11 +25,6 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.UpdateA
                .NotNull()
                .NotEmpty()
                .WithMessage("{PropertyName} is required.");
-
-            RuleFor(p => p.AccountNumber)
-               .NotNull()
-               .NotEmpty()
-               .WithMessage("{PropertyName} is required.");
         }
 
         private async Task<bool> FormIdMustExist(Guid guid, CancellationToken token)

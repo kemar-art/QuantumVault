@@ -10,6 +10,9 @@ namespace QuantumVault.Domain;
 public class Account
 {
     public Guid Id { get; set; } = Guid.NewGuid();
+
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int AccountNumber { get; set; }
     public decimal Balance { get; set; }
     public DateTime CreatedDate { get; set; }
 
@@ -21,9 +24,9 @@ public class Account
     public Branch? Branch { get; set; }
     public Guid BranchId { get; set; }
 
-    [ForeignKey(nameof(AccountId))]
+    [ForeignKey(nameof(AccountTypeId))]
     public AccountType? AccountType { get; set; }
-    public Guid AccountId { get; set; }
+    public Guid AccountTypeId { get; set; }
 
     public ICollection<Transaction>? Transactions { get; set; }
     public ICollection<AuditLog>? AuditLogs { get; set; }

@@ -14,6 +14,8 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.UpdateA
 
         public UpdateAccountTypeCommandValidator(IAccountType accountType)
         {
+            _accountType = accountType;
+
             RuleFor(p => p.Id)
                .NotNull()
                .MustAsync(FormIdMustExist)
@@ -24,8 +26,10 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.UpdateA
                .NotEmpty()
                .WithMessage("{PropertyName} is required.");
 
-
-            _accountType = accountType;
+            RuleFor(p => p.AccountNumber)
+               .NotNull()
+               .NotEmpty()
+               .WithMessage("{PropertyName} is required.");
         }
 
         private async Task<bool> FormIdMustExist(Guid guid, CancellationToken token)

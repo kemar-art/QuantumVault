@@ -8,6 +8,8 @@ namespace QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAllAccou
 {
     public class AllAccountsTypeDTO
     {
+        public int AccountNumber { get; set; }
         public string TypeName { get; set; } = string.Empty;
+
     }
 }

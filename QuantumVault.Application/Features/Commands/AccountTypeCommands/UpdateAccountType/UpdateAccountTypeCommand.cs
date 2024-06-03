@@ -10,6 +10,7 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.UpdateA
     public class UpdateAccountTypeCommand : IRequest<Unit>
     {
         public Guid Id { get; set; }
+        public int AccountNumber { get; set; }
         public string TypeName { get; set; } = string.Empty;
     }
 }

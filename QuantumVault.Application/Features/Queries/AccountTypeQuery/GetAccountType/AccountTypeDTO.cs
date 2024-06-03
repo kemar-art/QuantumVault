@@ -11,6 +11,7 @@ namespace QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAccount
     public class AccountTypeDTO
     {
         public Guid Id { get; set; }
+        public int AccountNumber { get; set; }
         public string TypeName { get; set; } = string.Empty;
     }
 }

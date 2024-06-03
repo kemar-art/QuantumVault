@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Commands\" />
-    <Folder Include="Features\Queries\AccountType\GetAllAccountsType\" />
+    <Folder Include="Features\Commands\AccountTypeCommands\DeleteAccountType\" />
+    <Folder Include="Features\Commands\AccountTypeCommands\UpdateAccountType\" />
   </ItemGroup>
 
   <ItemGroup>

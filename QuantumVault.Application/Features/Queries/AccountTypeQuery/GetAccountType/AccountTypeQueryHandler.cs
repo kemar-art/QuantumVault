@@ -2,14 +2,14 @@
 using MediatR;
 using QuantumVault.Application.Contracts;
 using QuantumVault.Application.Exceptions;
-using QuantumVault.Application.Features.Queries.Account.GetAccount;
+using QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAccount;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuantumVault.Application.Features.Queries.AccountType.GetAccountType
+namespace QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAccountType
 {
     public class AccountTypeQueryHandler : IRequestHandler<AccountTypeQuery, AccountTypeDTO>
     {

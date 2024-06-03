@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuantumVault.Application.Features.Queries.Account.GetAccount
+namespace QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAccount
 {
     public class AccountTypeDTO
     {

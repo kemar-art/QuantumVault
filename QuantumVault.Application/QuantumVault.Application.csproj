@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Commands\AccountTypeCommands\DeleteAccountType\" />
     <Folder Include="Features\Commands\AccountTypeCommands\UpdateAccountType\" />
   </ItemGroup>
 

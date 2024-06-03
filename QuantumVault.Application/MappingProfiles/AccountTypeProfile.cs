@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿ using AutoMapper;
 using QuantumVault.Application.Features.Commands.AccountTypeCommands.CreateAccountType;
 using QuantumVault.Application.Features.Commands.AccountTypeCommands.UpdateAccountType;
 using QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAccount;

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using QuantumVault.Application.Features.Commands.AccountCommands.CreateAccount;
+using QuantumVault.Application.Features.Commands.AccountCommands.UpdateAccount;
 using QuantumVault.Application.Features.Queries.AccountsQuery.GetAccount;
 using QuantumVault.Application.Features.Queries.AccountsQuery.GetAllAccounts;
 using QuantumVault.Domain;
@@ -18,6 +19,7 @@ namespace QuantumVault.Application.MappingProfiles
             CreateMap<Account, AccountDTO>().ReverseMap();
             CreateMap<Account, AllAccountDTO>().ReverseMap();
             CreateMap<Account, CreateAccountCommand>().ReverseMap();
+            CreateMap<Account, UpdateAccountCommand>().ReverseMap();
         }
     }
 }

@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumVault.Application", "QuantumVault.Application\QuantumVault.Application.csproj", "{921A3C2D-E6C2-4486-A1B4-A26A08307361}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumVault.Domain", "QuantumVault.Domain\QuantumVault.Domain.csproj", "{5B223B4C-2A68-4266-8F73-2096F655E657}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumVault.Infrastructure", "QuantumVault.Infrastructure\QuantumVault.Infrastructure.csproj", "{6FF330A6-2CD2-448B-9880-FB452E53C777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumVault.Persistence", "QuantumVault.Persistence\QuantumVault.Persistence.csproj", "{15C386D9-9D8E-4449-A806-BCC57C5B7036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumVault.API", "QuantumVault.API\QuantumVault.API.csproj", "{FF8F43B9-DE04-4ED2-B4C1-B5C6EC3583C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DD1EC84C-A709-486A-98CE-FCA3C118DD2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{D797B6C5-CCC2-4D17-BC8D-5137D01E9DE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{921A3C2D-E6C2-4486-A1B4-A26A08307361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921A3C2D-E6C2-4486-A1B4-A26A08307361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921A3C2D-E6C2-4486-A1B4-A26A08307361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921A3C2D-E6C2-4486-A1B4-A26A08307361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B223B4C-2A68-4266-8F73-2096F655E657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B223B4C-2A68-4266-8F73-2096F655E657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B223B4C-2A68-4266-8F73-2096F655E657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B223B4C-2A68-4266-8F73-2096F655E657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF330A6-2CD2-448B-9880-FB452E53C777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF330A6-2CD2-448B-9880-FB452E53C777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF330A6-2CD2-448B-9880-FB452E53C777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF330A6-2CD2-448B-9880-FB452E53C777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15C386D9-9D8E-4449-A806-BCC57C5B7036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C386D9-9D8E-4449-A806-BCC57C5B7036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C386D9-9D8E-4449-A806-BCC57C5B7036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15C386D9-9D8E-4449-A806-BCC57C5B7036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8F43B9-DE04-4ED2-B4C1-B5C6EC3583C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8F43B9-DE04-4ED2-B4C1-B5C6EC3583C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8F43B9-DE04-4ED2-B4C1-B5C6EC3583C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8F43B9-DE04-4ED2-B4C1-B5C6EC3583C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{921A3C2D-E6C2-4486-A1B4-A26A08307361} = {DD1EC84C-A709-486A-98CE-FCA3C118DD2C}
+		{5B223B4C-2A68-4266-8F73-2096F655E657} = {DD1EC84C-A709-486A-98CE-FCA3C118DD2C}
+		{6FF330A6-2CD2-448B-9880-FB452E53C777} = {DD1EC84C-A709-486A-98CE-FCA3C118DD2C}
+		{15C386D9-9D8E-4449-A806-BCC57C5B7036} = {DD1EC84C-A709-486A-98CE-FCA3C118DD2C}
+		{FF8F43B9-DE04-4ED2-B4C1-B5C6EC3583C9} = {DD1EC84C-A709-486A-98CE-FCA3C118DD2C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61C77823-34C9-4D43-B60E-61A89F59D6CD}
+	EndGlobalSection
+EndGlobal

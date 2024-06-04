@@ -13,7 +13,8 @@ public class Employee
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
-    public string Phone { get; set; } = string.Empty;
+    public string Address { get; set; } = string.Empty;
+    public string PhoneNumber { get; set; } = string.Empty;
 
     [ForeignKey(nameof(BranchId))]
     public Branch? Branch { get; set; }

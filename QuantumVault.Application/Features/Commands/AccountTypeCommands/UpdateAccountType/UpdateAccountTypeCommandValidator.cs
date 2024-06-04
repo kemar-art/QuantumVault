@@ -27,9 +27,9 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.UpdateA
                .WithMessage("{PropertyName} is required.");
         }
 
-        private async Task<bool> FormIdMustExist(Guid guid, CancellationToken token)
+        private async Task<bool> FormIdMustExist(Guid guidId, CancellationToken token)
         {
-            var checkIfAccountTypeIdExist = await _accountType.GetByIdAsync(guid);
+            var checkIfAccountTypeIdExist = await _accountType.GetByIdAsync(guidId);
             return checkIfAccountTypeIdExist != null;
         }
     }

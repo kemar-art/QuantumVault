@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateCommand
+namespace QuantumVault.Application.Features.Commands.EmployeeCommands.UpdateEmployee
 {
-    public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
+    public class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>
     {
-        private readonly ICustomer _customer;
+        private readonly IEmployee _employee;
 
-        public UpdateCustomerCommandValidator(ICustomer customer)
+        public UpdateEmployeeCommandValidator(IEmployee employee)
         {
-            _customer = customer;
+            _employee = employee;
 
             RuleFor(p => p.Id)
                 .NotNull()
@@ -43,23 +43,22 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateComm
                 .WithMessage("{PropertyName} is required.")
                 .NotNull();
 
-            RuleFor(p => p.Email)
+            RuleFor(p => p.PhoneNumber)
                 .NotEmpty()
                 .WithMessage("{PropertyName} is required.")
-                .EmailAddress()
-                .WithMessage("A valid email is required.")
-                .NotNull();
-
-            RuleFor(p => p.DateOfBirth)
-                .NotEmpty()
-                .WithMessage("{PropertyName} is required.")
-                .NotNull();
+                .NotNull()
+                .MaximumLength(12)
+                .WithMessage("{PropertyName} must not be less than 10 digits.")
+                .MaximumLength(12)
+                .WithMessage("{PropertyName} must not be exceed 10 digits.")
+                .Matches(@"^\d{3}-\d{3}-\d{4}$")
+                .WithMessage("{PropertyName} is not valid. Expected format: 123-456-7890.");
         }
 
         private async Task<bool> FormIdMustExist(Guid guidId, CancellationToken token)
         {
-            var checkIfCustomerIdExist = await _customer.GetByIdAsync(guidId);
-            return checkIfCustomerIdExist != null;
+            var checkIfFormIdExist = await _employee.GetByIdAsync(guidId);
+            return checkIfFormIdExist != null;
         }
     }
 }

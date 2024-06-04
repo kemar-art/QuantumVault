@@ -47,9 +47,9 @@ namespace QuantumVault.Application.Features.Commands.AccountCommands.UpdateAccou
                .NotNull();
         }
 
-        private async Task<bool> FormIdMustExist(Guid guid, CancellationToken token)
+        private async Task<bool> FormIdMustExist(Guid guidId, CancellationToken token)
         {
-            var checkIfAccountIdExist = await _account.GetByIdAsync(guid);
+            var checkIfAccountIdExist = await _account.GetByIdAsync(guidId);
             return checkIfAccountIdExist != null;
         }
     }

@@ -44,9 +44,9 @@ namespace QuantumVault.Application.Features.Commands.CardCommands.UpdateCard
                .NotNull();
         }
 
-        private async Task<bool> FormIdMustExist(Guid guid, CancellationToken token)
+        private async Task<bool> FormIdMustExist(Guid guidId, CancellationToken token)
         {
-            var checkIfCardIdExist = await _card.GetByIdAsync(guid);
+            var checkIfCardIdExist = await _card.GetByIdAsync(guidId);
             return checkIfCardIdExist != null;
         }
     }

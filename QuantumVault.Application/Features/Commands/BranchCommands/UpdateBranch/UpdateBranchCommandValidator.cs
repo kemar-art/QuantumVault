@@ -37,9 +37,9 @@ namespace QuantumVault.Application.Features.Commands.BranchCommands.UpdateBranch
                .NotNull();
         }
 
-        private async Task<bool> FormIdMustExist(Guid guid, CancellationToken token)
+        private async Task<bool> FormIdMustExist(Guid guidId, CancellationToken token)
         {
-            var checkIfBranchIdExist = await _branch.GetByIdAsync(guid);
+            var checkIfBranchIdExist = await _branch.GetByIdAsync(guidId);
             return checkIfBranchIdExist != null;
         }
     }

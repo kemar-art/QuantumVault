@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using QuantumVault.Application.Features.Commands.EmployeeCommands.CreateEmployee;
+using QuantumVault.Application.Features.Commands.EmployeeCommands.UpdateEmployee;
 using QuantumVault.Application.Features.Queries.EmployeesQuery.GetAllEmployees;
 using QuantumVault.Application.Features.Queries.EmployeesQuery.GetEmployee;
 using QuantumVault.Domain;
@@ -16,8 +18,8 @@ namespace QuantumVault.Application.MappingProfiles
         {
             CreateMap<Employee, EmployeeDTO>();
             CreateMap<Employee, AllEmployeesDTO>();
-            //CreateMap<Employee, EmployeeDTO>();
-            //CreateMap<Employee, EmployeeDTO>();
+            CreateMap<Employee, CreateEmployeeCommand>();
+            CreateMap<Employee, UpdateEmployeeCommand>();
         }
     }
 }

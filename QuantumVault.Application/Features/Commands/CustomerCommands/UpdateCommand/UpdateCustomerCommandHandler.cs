@@ -9,36 +9,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateCommand
+namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateCommand
 {
-    public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Guid>
+    public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, Unit>
     {
         private readonly IMapper _mapper;
         private readonly ICustomer _customer;
 
-        public CreateCustomerCommandHandler(IMapper mapper, ICustomer customer)
+        public UpdateCustomerCommandHandler(IMapper mapper, ICustomer customer)
         {
             _mapper = mapper;
             _customer = customer;
         }
 
-        public async Task<Guid> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
             //Validate incoming data
-            var validator = new CreateCustomerCommandValidator();
+            var validator = new UpdateCustomerCommandValidator(_customer);
             var validationResult = await validator.ValidateAsync(request);
             if (validationResult.Errors.Any())
             {
-                throw new BadRequestException("Error submitting Customer for creation", validationResult);
+                throw new BadRequestException("Error submitting Customer for update", validationResult);
             }
 
             //Convert incoming entity to domain entity
-            var customerToCreate = _mapper.Map<Customer>(request);
+            var customerToUpdate = _mapper.Map<Customer>(request);
             //Add to database 
-            await _customer.CreateAsync(customerToCreate);
+            await _customer.UpdateAsync(customerToUpdate);
 
             //Return result.
-            return customerToCreate.Id;
+            return Unit.Value;
         }
     }
 }

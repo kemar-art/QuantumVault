@@ -17,9 +17,4 @@
     <ProjectReference Include="..\QuantumVault.Domain\QuantumVault.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Commands\CustomerCommands\DeleteCustomer\" />
-    <Folder Include="Features\Commands\CustomerCommands\UpdateCommand\" />
-  </ItemGroup>
-
 </Project>

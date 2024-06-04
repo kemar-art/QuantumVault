@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using QuantumVault.Application.Features.Commands.CardTypeCommands.CreateCardType;
+using QuantumVault.Application.Features.Commands.CardTypeCommands.UpdateCardType;
 using QuantumVault.Application.Features.Queries.CardTypesQuery.GetAllCardTypes;
 using QuantumVault.Application.Features.Queries.CardTypesQuery.GetCardType;
 using QuantumVault.Domain;
@@ -16,8 +18,8 @@ namespace QuantumVault.Application.MappingProfiles
         {
             CreateMap<CardType, CardTypeDTO>().ReverseMap();
             CreateMap<CardType, AllCardTypesDTO>().ReverseMap();
-            //CreateMap<CardType, CardTypeDTO>().ReverseMap();
-            //CreateMap<CardType, CardTypeDTO>().ReverseMap();
+            CreateMap<CardType, CreateCardTypeCommand>().ReverseMap();
+            CreateMap<CardType, UpdateCardTypeCommand>().ReverseMap();
         }
     }
 }

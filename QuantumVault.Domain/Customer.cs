@@ -8,7 +8,7 @@ namespace QuantumVault.Domain;
 
 public class Customer
 {
-    public string Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty ;
     public string Email { get; set; } = string.Empty;

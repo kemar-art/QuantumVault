@@ -9,7 +9,7 @@ namespace QuantumVault.Domain;
 
 public class Card
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public string Id { get; set; } 
     public string CardNumber { get; set; } = string.Empty;
     public DateTime ExpiryDate { get; set; }
 

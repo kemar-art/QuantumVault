@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace QuantumVault.Application.Features.Queries.CardTypesQuery.GetAllCardTypes
 {
-    public record GetAllCardTypesQuery : IRequest<IEnumerable<AllCardTypesDTO>>;
+    public record AllCardTypesQuery : IRequest<IEnumerable<AllCardTypesDTO>>;
 
 }

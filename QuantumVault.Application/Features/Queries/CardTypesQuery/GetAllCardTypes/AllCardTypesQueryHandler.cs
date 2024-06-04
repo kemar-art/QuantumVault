@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace QuantumVault.Application.Features.Queries.CardTypesQuery.GetAllCardTypes
 {
-    public class GetAllCardTypesQueryHandler : IRequestHandler<GetAllCardTypesQuery, IEnumerable<AllCardTypesDTO>>
+    public class AllCardTypesQueryHandler : IRequestHandler<AllCardTypesQuery, IEnumerable<AllCardTypesDTO>>
     {
         private readonly IMapper _mapper;
         private readonly ICardType _cardType;
 
-        public GetAllCardTypesQueryHandler(IMapper mapper, ICardType cardType)
+        public AllCardTypesQueryHandler(IMapper mapper, ICardType cardType)
         {
             _mapper = mapper;
             _cardType = cardType;
         }
 
-        public async Task<IEnumerable<AllCardTypesDTO>> Handle(GetAllCardTypesQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<AllCardTypesDTO>> Handle(AllCardTypesQuery request, CancellationToken cancellationToken)
         {
             var getAllForms = await _cardType.GetAllAsync();
 

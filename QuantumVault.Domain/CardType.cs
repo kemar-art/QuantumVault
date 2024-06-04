@@ -9,6 +9,6 @@ namespace QuantumVault.Domain;
 public class CardType
 {
     public Guid Id { get; set; } = Guid.NewGuid();
-    public string TypeName { get; set; } = string.Empty;
+    public string CardTypeName { get; set; } = string.Empty;
     public ICollection<Card>? Cards { get; set; }
 }

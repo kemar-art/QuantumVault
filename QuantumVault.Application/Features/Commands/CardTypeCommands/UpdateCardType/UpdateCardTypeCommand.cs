@@ -1,15 +1,15 @@
-﻿using QuantumVault.Domain;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuantumVault.Application.Features.Queries.CardTypesQuery.GetCardType
+namespace QuantumVault.Application.Features.Commands.CardTypeCommands.UpdateCardType
 {
-    public class CardTypeDTO
+    public class UpdateCardTypeCommand : IRequest<Unit>
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; }
         public string CardTypeName { get; set; } = string.Empty;
     }
 }

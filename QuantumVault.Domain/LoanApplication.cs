@@ -16,7 +16,7 @@ public class LoanApplication
 
     [ForeignKey(nameof(CustomerId))]
     public Customer? Customer { get; set; }
-    public string CustomerId { get; set; } = string.Empty;
+    public Guid CustomerId { get; set; } 
 
     [ForeignKey(nameof(LoanTypeId))]
     public LoanType? LoanType { get; set; }

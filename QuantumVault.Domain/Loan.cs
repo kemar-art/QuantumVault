@@ -17,7 +17,7 @@ public class Loan
 
     [ForeignKey(nameof(CustomerId))]
     public Customer? Customer { get; set; }
-    public string CustomerId { get; set; } = string.Empty;
+    public Guid CustomerId { get; set; }
 
     public ICollection<LoanPayment>? Payments { get; set; }
     public ICollection<AuditLog>? AuditLogs { get; set; }

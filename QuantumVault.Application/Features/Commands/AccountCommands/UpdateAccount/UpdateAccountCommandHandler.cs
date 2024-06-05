@@ -15,9 +15,9 @@ namespace QuantumVault.Application.Features.Commands.AccountCommands.UpdateAccou
     public class UpdateAccountCommandHandler : IRequestHandler<UpdateAccountCommand, Unit>
     {
         private readonly IMapper _mapper;
-        private readonly IAccount _account;
+        private readonly IAccountRepository _account;
 
-        public UpdateAccountCommandHandler(IMapper mapper, IAccount account)
+        public UpdateAccountCommandHandler(IMapper mapper, IAccountRepository account)
         {
             _mapper = mapper;
             _account = account;

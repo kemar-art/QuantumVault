@@ -13,9 +13,9 @@ namespace QuantumVault.Application.Features.Queries.CardsQuery.GetCard
     public class CardQueryHandler : IRequestHandler<CardQuery, CardDTO>
     {
         private readonly IMapper _mapper;
-        private readonly ICard _card;
+        private readonly ICardRepository _card;
 
-        public CardQueryHandler(IMapper mapper, ICard card)
+        public CardQueryHandler(IMapper mapper, ICardRepository card)
         {
             _mapper = mapper;
             _card = card;

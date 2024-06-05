@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace QuantumVault.Application.Contracts.Repository_Interface
 {
-    public interface ICardType : IGenericRepository<CardType>
+    public interface IBranchRepository : IGenericRepository<Branch>
     {
+        Task <int> GetBranchCountAsync();
     }
 }

@@ -44,6 +44,13 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
                 .NotEmpty()
                 .WithMessage("{PropertyName} is required.")
                 .NotNull();
+
+            RuleFor(p => p.OpeningBalance)
+                .NotEmpty()
+                .WithMessage("{PropertyName} is required.")
+                .NotNull()
+                .LessThan(5000)
+                .WithMessage("{PropertyName} need a mimimum of $5000 to open an account");
         }
     }
 }

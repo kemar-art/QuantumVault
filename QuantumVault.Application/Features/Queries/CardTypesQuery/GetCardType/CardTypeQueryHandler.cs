@@ -13,9 +13,9 @@ namespace QuantumVault.Application.Features.Queries.CardTypesQuery.GetCardType
     public class CardTypeQueryHandler : IRequestHandler<CardTypeQuery, CardTypeDTO>
     {
         private readonly IMapper _mapper;
-        private readonly ICardType _cardType;
+        private readonly ICardTypeRepository _cardType;
 
-        public CardTypeQueryHandler(IMapper mappper, ICardType cardType)
+        public CardTypeQueryHandler(IMapper mappper, ICardTypeRepository cardType)
         {
             _mapper = mappper;
             _cardType = cardType;

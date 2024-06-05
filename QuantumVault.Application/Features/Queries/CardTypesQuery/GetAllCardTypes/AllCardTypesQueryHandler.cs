@@ -12,9 +12,9 @@ namespace QuantumVault.Application.Features.Queries.CardTypesQuery.GetAllCardTyp
     public class AllCardTypesQueryHandler : IRequestHandler<AllCardTypesQuery, IEnumerable<AllCardTypesDTO>>
     {
         private readonly IMapper _mapper;
-        private readonly ICardType _cardType;
+        private readonly ICardTypeRepository _cardType;
 
-        public AllCardTypesQueryHandler(IMapper mapper, ICardType cardType)
+        public AllCardTypesQueryHandler(IMapper mapper, ICardTypeRepository cardType)
         {
             _mapper = mapper;
             _cardType = cardType;

@@ -10,9 +10,9 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.UpdateA
 {
     public class UpdateAccountTypeCommandValidator : AbstractValidator<UpdateAccountTypeCommand>
     {
-        private readonly IAccountType _accountType;
+        private readonly IAccountTypeRepository _accountType;
 
-        public UpdateAccountTypeCommandValidator(IAccountType accountType)
+        public UpdateAccountTypeCommandValidator(IAccountTypeRepository accountType)
         {
             _accountType = accountType;
 

@@ -14,9 +14,9 @@ namespace QuantumVault.Application.Features.Queries.AccountsQuery.GetAccount
     public class AccountQueryHandler : IRequestHandler<AccountQuery, AccountDTO>
     {
         private readonly IMapper _mapper;
-        private readonly IAccount _account;
+        private readonly IAccountRepository _account;
 
-        public AccountQueryHandler(IMapper mapper, IAccount account)
+        public AccountQueryHandler(IMapper mapper, IAccountRepository account)
         {
             _mapper = mapper;
             _account = account;

@@ -11,10 +11,10 @@ namespace QuantumVault.Application.Features.Queries.LoanQuery.GetAllLoans
 {
     public class AllLoanQueryHandler : IRequestHandler<AllLoanQuery, IEnumerable<AllLoanDTO>>
     {
-        private readonly ILoan _loan;
+        private readonly ILoanRepository _loan;
         private readonly IMapper _mapper;
 
-        public AllLoanQueryHandler(IMapper mapper, ILoan loan)
+        public AllLoanQueryHandler(IMapper mapper, ILoanRepository loan)
         {
             _loan = loan;
             _mapper = mapper;

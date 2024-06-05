@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,12 @@ public class Customer
     public string Phone { get; set; } = string.Empty;
     public string Occupation { get; set; } = string.Empty;
     public string Address { get; set; } = string.Empty;
+    public decimal OpeningBalance { get; set; }
+
+    [ForeignKey(nameof(BranchId))]
+    public Branch? Branch { get; set; }
+    public Guid BranchId { get; set; }
+
     public DateTime DateOfBirth { get; set; }
     public ICollection<Account>? Accounts { get; set; }
     public ICollection<LoanApplication>? LoanApplications { get; set; }

@@ -15,9 +15,9 @@ namespace QuantumVault.Application.Features.Commands.BranchCommands.CreateBranch
     public class CreateBranchCommandHandler : IRequestHandler<CreateBranchCommand, Guid>
     {
         private readonly IMapper _mapper;
-        private readonly IBranch _branch;
+        private readonly IBranchRepository _branch;
 
-        public CreateBranchCommandHandler(IMapper mapper, IBranch branch)
+        public CreateBranchCommandHandler(IMapper mapper, IBranchRepository branch)
         {
             _mapper = mapper;
             _branch = branch;

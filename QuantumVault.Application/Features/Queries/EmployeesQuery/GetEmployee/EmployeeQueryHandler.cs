@@ -13,9 +13,9 @@ namespace QuantumVault.Application.Features.Queries.EmployeesQuery.GetEmployee
     public class EmployeeQueryHandler : IRequestHandler<EmployeeQuery, EmployeeDTO>
     {
         private readonly IMapper _mapper;
-        private readonly IEmployee _employee;
+        private readonly IEmployeeRepository _employee;
 
-        public EmployeeQueryHandler(IMapper mapper, IEmployee employee)
+        public EmployeeQueryHandler(IMapper mapper, IEmployeeRepository employee)
         {
             _mapper = mapper;
             _employee = employee;

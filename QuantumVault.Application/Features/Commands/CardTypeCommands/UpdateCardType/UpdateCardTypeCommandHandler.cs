@@ -14,9 +14,9 @@ namespace QuantumVault.Application.Features.Commands.CardTypeCommands.UpdateCard
     public class UpdateCardTypeCommandHandler : IRequestHandler<UpdateCardTypeCommand, Unit>
     {
         private readonly IMapper _mapper;
-        private readonly ICardType _cardType;
+        private readonly ICardTypeRepository _cardType;
 
-        public UpdateCardTypeCommandHandler(IMapper mapper, ICardType cardType)
+        public UpdateCardTypeCommandHandler(IMapper mapper, ICardTypeRepository cardType)
         {
             _mapper = mapper;
             _cardType = cardType;

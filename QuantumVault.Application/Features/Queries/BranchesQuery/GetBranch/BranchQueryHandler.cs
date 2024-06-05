@@ -14,9 +14,9 @@ namespace QuantumVault.Application.Features.Queries.BranchesQuery.GetBranch
     public class BranchQueryHandler : IRequestHandler<BranchQuery, BranchDTO>
     {
         private readonly IMapper _mapper;
-        private readonly IBranch _branch;
+        private readonly IBranchRepository _branch;
 
-        public BranchQueryHandler(IMapper mapper, IBranch branch)
+        public BranchQueryHandler(IMapper mapper, IBranchRepository branch)
         {
             _mapper = mapper;
             _branch = branch;

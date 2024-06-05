@@ -12,9 +12,9 @@ namespace QuantumVault.Application.Features.Commands.AccountCommands.DeleteAccou
 {
     public class DeleteAccountCommandHandler : IRequestHandler<DeleteAccountCommand, Unit>
     {
-        private readonly IAccount _account;
+        private readonly IAccountRepository _account;
 
-        public DeleteAccountCommandHandler(IAccount account)
+        public DeleteAccountCommandHandler(IAccountRepository account)
         {
             _account = account;
         }

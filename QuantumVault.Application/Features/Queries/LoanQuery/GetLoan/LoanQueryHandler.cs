@@ -13,9 +13,9 @@ namespace QuantumVault.Application.Features.Queries.LoanQuery.GetLoan
     public class LoanQueryHandler : IRequestHandler<LoanQuery, LoadDTO>
     {
         private readonly IMapper _mapper;
-        private readonly ILoan _loan;
+        private readonly ILoanRepository _loan;
 
-        public LoanQueryHandler(IMapper mapper, ILoan loan)
+        public LoanQueryHandler(IMapper mapper, ILoanRepository loan)
         {
             _mapper = mapper;
             _loan = loan;

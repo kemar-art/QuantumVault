@@ -14,9 +14,9 @@ namespace QuantumVault.Application.Features.Commands.CardCommands.CreateCard
     public class CreateCardCommandHandler : IRequestHandler<CreateCardCommand, Guid>
     {
         private readonly IMapper _mapper;
-        private readonly ICard _card;
+        private readonly ICardRepository _card;
 
-        public CreateCardCommandHandler(IMapper mapper, ICard card)
+        public CreateCardCommandHandler(IMapper mapper, ICardRepository card)
         {
             _mapper = mapper;
             _card = card;

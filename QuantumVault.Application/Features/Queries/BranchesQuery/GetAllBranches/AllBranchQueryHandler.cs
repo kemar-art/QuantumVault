@@ -13,9 +13,9 @@ namespace QuantumVault.Application.Features.Queries.BranchesQuery.GetAllBranch
     public class AllBranchQueryHandler : IRequestHandler<AllBranchQuery, IEnumerable<AllBranchDTO>>
     {
         private readonly IMapper _mapper;
-        private readonly IBranch _branch;
+        private readonly IBranchRepository _branch;
 
-        public AllBranchQueryHandler(IMapper mapper, IBranch branch)
+        public AllBranchQueryHandler(IMapper mapper, IBranchRepository branch)
         {
             _mapper = mapper;
             _branch = branch;

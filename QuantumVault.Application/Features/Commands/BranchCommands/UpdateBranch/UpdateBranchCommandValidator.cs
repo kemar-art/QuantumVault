@@ -10,9 +10,9 @@ namespace QuantumVault.Application.Features.Commands.BranchCommands.UpdateBranch
 {
     public class UpdateBranchCommandValidator : AbstractValidator<UpdateBranchCommand>
     {
-        private readonly IBranch _branch;
+        private readonly IBranchRepository _branch;
 
-        public UpdateBranchCommandValidator(IBranch branch)
+        public UpdateBranchCommandValidator(IBranchRepository branch)
         {
             _branch = branch;
 

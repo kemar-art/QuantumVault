@@ -11,9 +11,9 @@ namespace QuantumVault.Application.Features.Commands.EmployeeCommands.DeleteEmpl
 {
     public class DeleteEmployeeCommandHandler : IRequestHandler<DeleteEmployeeCommand, Unit>
     {
-        private readonly IEmployee _employee;
+        private readonly IEmployeeRepository _employee;
 
-        public DeleteEmployeeCommandHandler(IEmployee employee)
+        public DeleteEmployeeCommandHandler(IEmployeeRepository employee)
         {
             _employee = employee;
         }

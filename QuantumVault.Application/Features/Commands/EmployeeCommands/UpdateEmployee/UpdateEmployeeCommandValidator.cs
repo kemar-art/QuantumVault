@@ -10,9 +10,9 @@ namespace QuantumVault.Application.Features.Commands.EmployeeCommands.UpdateEmpl
 {
     public class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>
     {
-        private readonly IEmployee _employee;
+        private readonly IEmployeeRepository _employee;
 
-        public UpdateEmployeeCommandValidator(IEmployee employee)
+        public UpdateEmployeeCommandValidator(IEmployeeRepository employee)
         {
             _employee = employee;
 

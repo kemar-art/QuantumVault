@@ -14,9 +14,9 @@ namespace QuantumVault.Application.Features.Commands.EmployeeCommands.CreateEmpl
     public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeCommand, Guid>
     {
         private readonly IMapper _mapper;
-        private readonly IEmployee _employee;
+        private readonly IEmployeeRepository _employee;
 
-        public CreateEmployeeCommandHandler(IMapper mapper, IEmployee employee)
+        public CreateEmployeeCommandHandler(IMapper mapper, IEmployeeRepository employee)
         {
             _mapper = mapper;
             _employee = employee;

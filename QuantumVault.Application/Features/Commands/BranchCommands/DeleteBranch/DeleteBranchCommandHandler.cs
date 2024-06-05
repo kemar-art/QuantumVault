@@ -12,9 +12,9 @@ namespace QuantumVault.Application.Features.Commands.BranchCommands.DeleteBranch
 {
     public class DeleteBranchCommandHandler : IRequestHandler<DeleteBranchCommand, Unit>
     {
-        private readonly IBranch _branch;
+        private readonly IBranchRepository _branch;
 
-        public DeleteBranchCommandHandler(IBranch branch)
+        public DeleteBranchCommandHandler(IBranchRepository branch)
         {
             _branch = branch;
         }

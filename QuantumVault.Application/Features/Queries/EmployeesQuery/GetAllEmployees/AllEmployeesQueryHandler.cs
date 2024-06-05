@@ -11,10 +11,10 @@ namespace QuantumVault.Application.Features.Queries.EmployeesQuery.GetAllEmploye
 {
     public class AllEmployeesQueryHandler : IRequestHandler<AllEmployeesQuery, IEnumerable<AllEmployeesDTO>>
     {
-        private readonly IEmployee _employee;
+        private readonly IEmployeeRepository _employee;
         private readonly IMapper _mapper;
 
-        public AllEmployeesQueryHandler(IMapper mapper, IEmployee employee)
+        public AllEmployeesQueryHandler(IMapper mapper, IEmployeeRepository employee)
         {
             _employee = employee;
             _mapper = mapper;

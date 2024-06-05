@@ -11,9 +11,9 @@ namespace QuantumVault.Application.Features.Commands.CardCommands.DaleteCard
 {
     public class DeleteCardCommandHandler : IRequestHandler<DeleteCardCommand, Unit>
     {
-        private readonly ICard _card;
+        private readonly ICardRepository _card;
 
-        public DeleteCardCommandHandler(ICard card)
+        public DeleteCardCommandHandler(ICardRepository card)
         {
             _card = card;
         }

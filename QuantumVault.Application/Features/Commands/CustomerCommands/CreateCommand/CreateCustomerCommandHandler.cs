@@ -15,11 +15,15 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
     {
         private readonly IMapper _mapper;
         private readonly ICustomer _customer;
+        private readonly IAccountRepository _account;
+        private readonly IBranchRepository _branch;
 
-        public CreateCustomerCommandHandler(IMapper mapper, ICustomer customer)
+        public CreateCustomerCommandHandler(IMapper mapper, ICustomer customer, IAccountRepository account, IBranchRepository branch)
         {
             _mapper = mapper;
             _customer = customer;
+            _account = account;
+            _branch = branch;
         }
 
         public async Task<Guid> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
@@ -34,8 +38,19 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
 
             //Convert incoming entity to domain entity
             var customerToCreate = _mapper.Map<Customer>(request);
+
             //Add to database 
             await _customer.CreateAsync(customerToCreate);
+
+            //Create an Account for the customer
+            Account account = new()
+            {
+                CustomerId = customerToCreate.Id,
+                Balance = customerToCreate.OpeningBalance,
+                CreatedDate = DateTime.UtcNow,
+                BranchId = customerToCreate.BranchId,
+            };
+            await _account.CreateAsync(account);
 
             //Return result.
             return customerToCreate.Id;

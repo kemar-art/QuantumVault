@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuantumVault.Application.Contracts.Repository_Interface
 {
-    public interface ICard : IGenericRepository<Card>
+    public interface IAccountRepository : IGenericRepository<Account>
     {
     }
 }

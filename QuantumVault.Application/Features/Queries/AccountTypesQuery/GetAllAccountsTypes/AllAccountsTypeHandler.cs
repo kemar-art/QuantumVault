@@ -12,9 +12,9 @@ namespace QuantumVault.Application.Features.Queries.AccountTypeQuery.GetAllAccou
     public class AllAccountsTypeHandler : IRequestHandler<AllAccountsTypeQuery, IEnumerable<AllAccountsTypeDTO>>
     {
         private readonly IMapper _mapper;
-        private readonly IAccountType _accountType;
+        private readonly IAccountTypeRepository _accountType;
 
-        public AllAccountsTypeHandler(IMapper mapper, IAccountType accountType)
+        public AllAccountsTypeHandler(IMapper mapper, IAccountTypeRepository accountType)
         {
             _mapper = mapper;
             _accountType = accountType;

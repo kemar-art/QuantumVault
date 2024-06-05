@@ -15,9 +15,9 @@ namespace QuantumVault.Application.Features.Commands.BranchCommands.UpdateBranch
     public class UpdateBranchCommandHandler : IRequestHandler<UpdateBranchCommand, Unit>
     {
         private readonly IMapper _mapper;
-        private readonly IBranch _branch;
+        private readonly IBranchRepository _branch;
 
-        public UpdateBranchCommandHandler(IMapper mapper, IBranch branch)
+        public UpdateBranchCommandHandler(IMapper mapper, IBranchRepository branch)
         {
             _mapper = mapper;
             _branch = branch;

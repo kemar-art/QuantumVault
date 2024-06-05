@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using QuantumVault.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,11 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
         public string Phone { get; set; } = string.Empty;
         public string Occupation { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
+        public decimal OpeningBalance { get; set; }
         public DateTime DateOfBirth { get; set; }
+
+        [ForeignKey(nameof(BranchId))]
+        public Branch? Branch { get; set; }
+        public Guid BranchId { get; set; }
     }
 }

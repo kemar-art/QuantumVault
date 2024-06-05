@@ -11,9 +11,9 @@ namespace QuantumVault.Application.Features.Commands.CardCommands.UpdateCard
 {
     public class UpdateCardCommandValidator : AbstractValidator<UpdateCardCommand>
     {
-        private readonly ICard _card;
+        private readonly ICardRepository _card;
 
-        public UpdateCardCommandValidator(ICard card)
+        public UpdateCardCommandValidator(ICardRepository card)
         {
             _card = card;
 

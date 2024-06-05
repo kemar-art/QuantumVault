@@ -16,9 +16,9 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.CreateA
     public class CreateAccountTypeCommandHandler : IRequestHandler<CreateAccountTypeCommand, Guid>
     {
         private readonly IMapper _mapper;
-        private readonly IAccountType _accountType;
+        private readonly IAccountTypeRepository _accountType;
 
-        public CreateAccountTypeCommandHandler(IMapper mapper, IAccountType accountType)
+        public CreateAccountTypeCommandHandler(IMapper mapper, IAccountTypeRepository accountType)
         {
             _mapper = mapper;
             _accountType = accountType;

@@ -11,9 +11,9 @@ namespace QuantumVault.Application.Features.Commands.AccountTypeCommands.DeleteA
 {
     public class DeleteAccountTypeCommandHandler : IRequestHandler<DeleteAccountTypeCommand, Unit>
     {
-        private readonly IAccountType _accountType;
+        private readonly IAccountTypeRepository _accountType;
 
-        public DeleteAccountTypeCommandHandler(IAccountType accountType)
+        public DeleteAccountTypeCommandHandler(IAccountTypeRepository accountType)
         {
             _accountType = accountType;
         }

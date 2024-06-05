@@ -16,6 +16,7 @@ namespace QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer
         public string Phone { get; set; } = string.Empty;
         public string Occupation { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
+        public decimal OpenninmgBalance { get; set; }
         public DateTime DateOfBirth { get; set; }
         public ICollection<Account>? Accounts { get; set; }
         public ICollection<LoanApplication>? LoanApplications { get; set; }

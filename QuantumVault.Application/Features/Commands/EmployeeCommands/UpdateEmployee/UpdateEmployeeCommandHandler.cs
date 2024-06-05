@@ -14,9 +14,9 @@ namespace QuantumVault.Application.Features.Commands.EmployeeCommands.UpdateEmpl
     public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand, Unit>
     {
         private readonly IMapper _mapper;
-        private readonly IEmployee _employee;
+        private readonly IEmployeeRepository _employee;
 
-        public UpdateEmployeeCommandHandler(IMapper mapper, IEmployee employee)
+        public UpdateEmployeeCommandHandler(IMapper mapper, IEmployeeRepository employee)
         {
             _mapper = mapper;
             _employee = employee;

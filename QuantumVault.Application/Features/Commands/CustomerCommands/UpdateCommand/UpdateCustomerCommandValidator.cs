@@ -10,9 +10,9 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateComm
 {
     public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
     {
-        private readonly ICustomer _customer;
+        private readonly ICustomerRepository _customer;
 
-        public UpdateCustomerCommandValidator(ICustomer customer)
+        public UpdateCustomerCommandValidator(ICustomerRepository customer)
         {
             _customer = customer;
 

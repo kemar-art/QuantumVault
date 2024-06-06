@@ -15,18 +15,18 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
     public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Guid>
     {
         private readonly IMapper _mapper;
-        private readonly ICustomer _customer;
+        private readonly ICustomerRepository _customer;
         private readonly IAccountRepository _account;
         private readonly IBranchRepository _branch;
+        private readonly ITransactionRepository _transaction;
 
-        
-
-        public CreateCustomerCommandHandler(IMapper mapper, ICustomer customer, IAccountRepository account, IBranchRepository branch)
+        public CreateCustomerCommandHandler(IMapper mapper, ICustomerRepository customer, IAccountRepository account, IBranchRepository branch, ITransactionRepository transaction)
         {
             _mapper = mapper;
             _customer = customer;
             _account = account;
             _branch = branch;
+            _transaction = transaction;
         }
 
         public async Task<Guid> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
@@ -65,10 +65,21 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
             {
                 CustomerId = customerToCreate.Id,
                 Balance = customerToCreate.OpeningBalance,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = DateTime.Now,
                 BranchId = customerToCreate.BranchId,
             };
             await _account.CreateAsync(account);
+
+            //Log Transaction
+            Transaction transaction = new()
+            {
+                Amount = customerToCreate.OpeningBalance,
+                Description = $"{customerToCreate.FirstName} {customerToCreate.LastName} thank you for opening a new account with us.",
+                TransactionDate = DateTime.Now,
+                AccountId = account.Id,
+                // The Transaction Type should be added.
+            };
+            await _transaction.CreateAsync(transaction);
 
             //Return result.
             return customerToCreate.Id;

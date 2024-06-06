@@ -1,6 +1,14 @@
+using QuantumVault.Application;
+using QuantumVault.Infrastructure;
+using QuantumVault.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddQuantumVaultApplicationService();
+builder.Services.AddQuantumVaultInfrastructureService(builder.Configuration);
+builder.Services.AddQuantumVaultPersistenceService(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

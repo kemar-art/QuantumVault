@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using QuantumVault.Application.Contracts.ILogger;
 using QuantumVault.Infrastructure.Logger;
 using System;
@@ -11,7 +12,7 @@ namespace QuantumVault.Infrastructure
 {
     public static class QuantumVaultInfrastructureServiceRegistration
     {
-        public static IServiceCollection AddQuantumVaultInfrastructureService(this IServiceCollection serviceProvider)
+        public static IServiceCollection AddQuantumVaultInfrastructureService(this IServiceCollection serviceProvider, IConfiguration configuration)
         {
             serviceProvider.AddScoped(typeof(IAppLogger<>), typeof(AppLogger<>));
 

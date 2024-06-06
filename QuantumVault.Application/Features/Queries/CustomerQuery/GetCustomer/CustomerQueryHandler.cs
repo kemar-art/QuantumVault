@@ -13,9 +13,9 @@ namespace QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer
     public class CustomerQueryHandler : IRequestHandler<CustomerQuery, CustomerDTO>
     {
         private readonly IMapper _mapper;
-        private readonly ICustomer _customer;
+        private readonly ICustomerRepository _customer;
 
-        public CustomerQueryHandler(IMapper mapper, ICustomer customer)
+        public CustomerQueryHandler(IMapper mapper, ICustomerRepository customer)
         {
             _mapper = mapper;
             _customer = customer;

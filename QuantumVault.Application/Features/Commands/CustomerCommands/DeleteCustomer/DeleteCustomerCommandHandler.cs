@@ -12,9 +12,9 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.DeleteCust
     public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, Unit>
     {
         private readonly IMapper mapper;
-        private readonly ICustomer customer;
+        private readonly ICustomerRepository customer;
 
-        public DeleteCustomerCommandHandler(IMapper mapper, ICustomer customer)
+        public DeleteCustomerCommandHandler(IMapper mapper, ICustomerRepository customer)
         {
             this.mapper = mapper;
             this.customer = customer;

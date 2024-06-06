@@ -14,9 +14,9 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateComm
     public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, Unit>
     {
         private readonly IMapper _mapper;
-        private readonly ICustomer _customer;
+        private readonly ICustomerRepository _customer;
 
-        public UpdateCustomerCommandHandler(IMapper mapper, ICustomer customer)
+        public UpdateCustomerCommandHandler(IMapper mapper, ICustomerRepository customer)
         {
             _mapper = mapper;
             _customer = customer;

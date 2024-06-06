@@ -15,7 +15,7 @@ namespace QuantumVault.Persistence
 {
     public static class PersistenceServiceRegistration
     {
-        public static IServiceCollection AddPersistenceService(this IServiceCollection serviceProvider, IConfiguration configuration) 
+        public static IServiceCollection AddQuantumVaultPersistenceService(this IServiceCollection serviceProvider, IConfiguration configuration) 
         {
             serviceProvider.AddDbContext<QuantumVaultDbContext>(options => {
                 options.UseSqlServer(configuration.GetConnectionString("QuantumVaultSecureConnection"));
@@ -23,6 +23,14 @@ namespace QuantumVault.Persistence
 
             serviceProvider.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             serviceProvider.AddScoped<IBranchRepository, BranchRepository>();
+            serviceProvider.AddScoped<IAccountRepository, AccountRepository>();
+            serviceProvider.AddScoped<IAccountTypeRepository, AccountTypeRepository>();
+            serviceProvider.AddScoped<ICardRepository, CardRepository>();
+            serviceProvider.AddScoped<ICardTypeRepository, CardTypeRepository>();
+            serviceProvider.AddScoped<ICustomerRepository, CustomerRepository>();
+            serviceProvider.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            serviceProvider.AddScoped<ILoanRepository, LoanRepository>();
+            serviceProvider.AddScoped<ITransactionRepository, TransactionRepository>();
             return serviceProvider;
         }
     }

@@ -10,4 +10,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QuantumVault.Application\QuantumVault.Application.csproj" />
+    <ProjectReference Include="..\QuantumVault.Infrastructure\QuantumVault.Infrastructure.csproj" />
+    <ProjectReference Include="..\QuantumVault.Persistence\QuantumVault.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>

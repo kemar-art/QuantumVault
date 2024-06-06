@@ -16,8 +16,4 @@
     <ProjectReference Include="..\QuantumVault.Persistence\QuantumVault.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

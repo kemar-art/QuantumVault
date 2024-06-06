@@ -2,6 +2,7 @@
 using MediatR;
 using QuantumVault.Application.Contracts.Repository_Interface;
 using QuantumVault.Application.Exceptions;
+using QuantumVault.Application.StaticDetails;
 using QuantumVault.Domain;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
         private readonly ICustomer _customer;
         private readonly IAccountRepository _account;
         private readonly IBranchRepository _branch;
+
+        
 
         public CreateCustomerCommandHandler(IMapper mapper, ICustomer customer, IAccountRepository account, IBranchRepository branch)
         {
@@ -38,6 +41,21 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
 
             //Convert incoming entity to domain entity
             var customerToCreate = _mapper.Map<Customer>(request);
+
+            //Create Branch
+            if (await _branch.GetBranchCountAsync() <= 1)
+            {
+                // This should be seeded in database after which I will use a query here instead of hard coding it
+                Branch branch = new()
+                {
+                    Id = new Guid("f219f041-ab3d-4785-8f07-aca7ca73e39e"),
+                    BranchName = "Current Branch",
+                    Address = "Current Address",
+                    PhoneNumber = "876-000-0000"
+                };
+
+                customerToCreate.BranchId = branch.Id;
+            }
 
             //Add to database 
             await _customer.CreateAsync(customerToCreate);

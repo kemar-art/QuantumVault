@@ -8,6 +8,6 @@ namespace QuantumVault.Application.StaticDetails
 {
     public static class OpeningBalanceMinimum
     {
-        public const decimal Mimimum = 5000;
+        public const decimal SavingAccountMinimum = 5000;
     }
 }

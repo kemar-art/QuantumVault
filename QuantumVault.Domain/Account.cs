@@ -24,10 +24,6 @@ public class Account
     public Branch? Branch { get; set; }
     public Guid BranchId { get; set; }
 
-    [ForeignKey(nameof(AccountTypeId))]
-    public AccountType? AccountType { get; set; }
-    public Guid AccountTypeId { get; set; }
-
     public ICollection<Transaction>? Transactions { get; set; }
     public ICollection<AuditLog>? AuditLogs { get; set; }
 }

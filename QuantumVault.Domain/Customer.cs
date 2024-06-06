@@ -17,12 +17,16 @@ public class Customer
     public string Occupation { get; set; } = string.Empty;
     public string Address { get; set; } = string.Empty;
     public decimal OpeningBalance { get; set; }
+    public DateTime DateOfBirth { get; set; }
 
     [ForeignKey(nameof(BranchId))]
     public Branch? Branch { get; set; }
     public Guid BranchId { get; set; }
 
-    public DateTime DateOfBirth { get; set; }
+    [ForeignKey(nameof(AccountTypeId))]
+    public AccountType? AccountType { get; set; }
+    public Guid AccountTypeId { get; set; }
+
     public ICollection<Account>? Accounts { get; set; }
     public ICollection<LoanApplication>? LoanApplications { get; set; }
     public ICollection<Loan>? Loans { get; set; }

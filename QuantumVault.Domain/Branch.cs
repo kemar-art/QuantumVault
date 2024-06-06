@@ -16,5 +16,13 @@ namespace QuantumVault.Domain
         public ICollection<Account>? Accounts { get; set; }
         public ICollection<Employee>? Employees { get; set; }
         public ICollection<AuditLog>? AuditLogs { get; set; }
+
+        //public Branch(Guid guidId, string branchName, string address, string phoneNumber)
+        //{
+        //    Id = guidId;
+        //    BranchName = branchName;
+        //    Address = address;
+        //    PhoneNumber = phoneNumber;
+        //}
     }
 }

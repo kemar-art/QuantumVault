@@ -11,7 +11,6 @@ namespace QuantumVault.Domain;
 
 public class AccountType
 {
-    [Key]
     public Guid Id { get; set; }
     public string TypeName { get; set; } = string.Empty;
 }

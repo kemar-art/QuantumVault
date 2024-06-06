@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using QuantumVault.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,5 +19,13 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateComm
         public string Occupation { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
         public DateTime DateOfBirth { get; set; }
+
+        [ForeignKey(nameof(AccountTypeId))]
+        public AccountType? AccountType { get; set; }
+        public Guid AccountTypeId { get; set; }
+
+        [ForeignKey(nameof(BranchId))]
+        public Branch? Branch { get; set; }
+        public Guid BranchId { get; set; }
     }
 }

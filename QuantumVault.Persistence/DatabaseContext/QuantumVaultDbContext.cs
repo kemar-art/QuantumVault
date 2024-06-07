@@ -32,6 +32,11 @@ namespace QuantumVault.Persistence.DatabaseContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Configure the initial value for AccountNumber
+            modelBuilder.Entity<Account>()
+            .Property(a => a.AccountNumber)
+            .UseIdentityColumn(seed:10001, increment:1);
+
             // Specify precision and scale for decimal properties
             modelBuilder.Entity<Account>()
                 .Property(a => a.Balance)

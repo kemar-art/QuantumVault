@@ -12,8 +12,8 @@ using QuantumVault.Persistence.DatabaseContext;
 namespace QuantumVault.Persistence.Migrations
 {
     [DbContext(typeof(QuantumVaultDbContext))]
-    [Migration("20240607015050_initial")]
-    partial class initial
+    [Migration("20240607201401_initail")]
+    partial class initail
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace QuantumVault.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountNumber"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountNumber"), 10001L);
 
                     b.Property<decimal>("Balance")
                         .HasPrecision(18, 2)

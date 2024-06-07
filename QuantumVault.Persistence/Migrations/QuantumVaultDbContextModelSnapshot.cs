@@ -32,7 +32,7 @@ namespace QuantumVault.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountNumber"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountNumber"), 10001L);
 
                     b.Property<decimal>("Balance")
                         .HasPrecision(18, 2)

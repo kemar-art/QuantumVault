@@ -42,23 +42,24 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
             //Convert incoming entity to domain entity
             var customerToCreate = _mapper.Map<Customer>(request);
 
+            //Add to database 
+            await _customer.CreateAsync(customerToCreate);
+
+
+
             //Create Branch
+            Branch branch = null;
             if (await _branch.GetBranchCountAsync() <= 1)
             {
                 // This should be seeded in database after which I will use a query here instead of hard coding it
-                Branch branch = new()
+                branch = new()
                 {
                     Id = new Guid("f219f041-ab3d-4785-8f07-aca7ca73e39e"),
                     BranchName = "Current Branch",
                     Address = "Current Address",
                     PhoneNumber = "876-000-0000"
                 };
-
-                customerToCreate.BranchId = branch.Id;
             }
-
-            //Add to database 
-            await _customer.CreateAsync(customerToCreate);
 
             //Create an Account for the customer
             Account account = new()
@@ -66,10 +67,16 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
                 CustomerId = customerToCreate.Id,
                 Balance = customerToCreate.OpeningBalance,
                 CreatedDate = DateTime.Now,
-                BranchId = customerToCreate.BranchId,
+                BranchId = branch.Id,
             };
             await _account.CreateAsync(account);
 
+            TransactionType transactionType = new()
+            {
+                Id = new Guid("f219f041-ab3d-4785-8f07-a7a77a73739e"),
+                TypeName = "Deposit"
+            };
+            
             //Log Transaction
             Transaction transaction = new()
             {
@@ -78,8 +85,16 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
                 TransactionDate = DateTime.Now,
                 AccountId = account.Id,
                 // The Transaction Type should be added.
+                TransactionTypeId = transactionType.Id
+
             };
             await _transaction.CreateAsync(transaction);
+
+            //Log to AuditLog Table
+            AuditLog auditLog = new()
+            {
+
+            };
 
             //Return result.
             return customerToCreate.Id;

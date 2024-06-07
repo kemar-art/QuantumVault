@@ -19,13 +19,5 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateComm
         public string Occupation { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
         public DateTime DateOfBirth { get; set; }
-
-        [ForeignKey(nameof(AccountTypeId))]
-        public AccountType? AccountType { get; set; }
-        public Guid AccountTypeId { get; set; }
-
-        [ForeignKey(nameof(BranchId))]
-        public Branch? Branch { get; set; }
-        public Guid BranchId { get; set; }
     }
 }

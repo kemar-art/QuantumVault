@@ -19,9 +19,5 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
         public string Address { get; set; } = string.Empty;
         public decimal OpeningBalance { get; set; }
         public DateTime DateOfBirth { get; set; }
-
-        [ForeignKey(nameof(BranchId))]
-        public Branch? Branch { get; set; }
-        public Guid BranchId { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using QuantumVault.API.Middleware;
 using QuantumVault.Application;
 using QuantumVault.Infrastructure;
 using QuantumVault.Persistence;
@@ -25,6 +26,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 

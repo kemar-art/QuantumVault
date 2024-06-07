@@ -29,5 +29,41 @@ namespace QuantumVault.Persistence.DatabaseContext
         public DbSet<LoanType> LoanTypes { get; set; }
         public DbSet<CardType> CardTypes { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Specify precision and scale for decimal properties
+            modelBuilder.Entity<Account>()
+                .Property(a => a.Balance)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Customer>()
+                .Property(c => c.OpeningBalance)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Loan>()
+                .Property(l => l.Amount)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Loan>()
+                .Property(l => l.InterestRate)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<LoanApplication>()
+                .Property(la => la.Amount)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<LoanPayment>()
+                .Property(lp => lp.PaymentAmount)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Transaction>()
+                .Property(t => t.Amount)
+                .HasPrecision(18, 2);
+
+            // Other model configuration
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
+

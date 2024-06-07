@@ -23,7 +23,7 @@ namespace QuantumVault.API.Controllers
 
         // GET: api/<CustomersController>
         [HttpGet]
-        public async Task<IEnumerable<AllCustomersDTO>> GetAll()
+        public async Task<IEnumerable<AllCustomersDTO>> Get()
         {
             var getAllCustomer = await _mediator.Send(new AllCustomersQuery());
             return getAllCustomer;
@@ -39,10 +39,10 @@ namespace QuantumVault.API.Controllers
 
         // POST api/<CustomersController>
         [HttpPost]
-        public async Task<ActionResult> Post(CreateCustomerCommand createCustomer)
+        public async Task<ActionResult> Post([FromBody]CreateCustomerCommand createCustomer)
         {
             var createNewCustomer = await _mediator.Send(createCustomer);
-            return CreatedAtAction(nameof(Get), new { id = createCustomer });
+            return CreatedAtAction(nameof(Get), new { id = createNewCustomer });
         }
 
         // PUT api/<CustomersController>/5

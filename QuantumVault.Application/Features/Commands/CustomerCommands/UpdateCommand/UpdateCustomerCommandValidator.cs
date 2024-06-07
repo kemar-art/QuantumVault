@@ -43,13 +43,6 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateComm
                 .WithMessage("{PropertyName} is required.")
                 .NotNull();
 
-            RuleFor(p => p.Email)
-                .NotEmpty()
-                .WithMessage("{PropertyName} is required.")
-                .EmailAddress()
-                .WithMessage("A valid email is required.")
-                .NotNull();
-
             RuleFor(p => p.DateOfBirth)
                 .NotEmpty()
                 .WithMessage("{PropertyName} is required.")

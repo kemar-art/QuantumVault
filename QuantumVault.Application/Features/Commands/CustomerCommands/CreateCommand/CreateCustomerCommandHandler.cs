@@ -31,73 +31,84 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.CreateComm
 
         public async Task<Guid> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
-            //Validate incoming data
-            var validator = new CreateCustomerCommandValidator();
-            var validationResult = await validator.ValidateAsync(request);
-            if (validationResult.Errors.Any())
+            try
             {
-                throw new BadRequestException("Error submitting Customer for creation", validationResult);
-            }
-
-            //Convert incoming entity to domain entity
-            var customerToCreate = _mapper.Map<Customer>(request);
-
-            //Add to database 
-            await _customer.CreateAsync(customerToCreate);
-
-
-
-            //Create Branch
-            Branch branch = null;
-            if (await _branch.GetBranchCountAsync() <= 1)
-            {
-                // This should be seeded in database after which I will use a query here instead of hard coding it
-                branch = new()
+                //Validate incoming data
+                var validator = new CreateCustomerCommandValidator();
+                var validationResult = await validator.ValidateAsync(request);
+                if (validationResult.Errors.Any())
                 {
-                    Id = new Guid("f219f041-ab3d-4785-8f07-aca7ca73e39e"),
-                    BranchName = "Current Branch",
-                    Address = "Current Address",
-                    PhoneNumber = "876-000-0000"
-                };
+                    throw new BadRequestException("Error submitting Customer for creation", validationResult);
+                }
+
+                //Convert incoming entity to domain entity
+                var customerToCreate = _mapper.Map<Customer>(request);
+
+                //Add to database 
+                await _customer.CreateAsync(customerToCreate);
+
+
+
+                //Create Branch
+
+                if (await _branch.GetBranchCountAsync() <= 1)
+                {
+                    // This should be seeded in database after which I will use a query here instead of hard coding it
+                    Branch branch = new()
+                    {
+                        Id = new Guid("f219f041-ab3d-4785-8f07-aca7ca73e39e"),
+                        BranchName = "Current Branch",
+                        Address = "Current Address",
+                        PhoneNumber = "876-000-0000"
+                    };
+
+
+                    //Create an Account for the customer
+                    Account account = new()
+                    {
+                        CustomerId = customerToCreate.Id,
+                        Balance = customerToCreate.OpeningBalance,
+                        CreatedDate = DateTime.Now,
+                        BranchId = branch.Id,
+                    };
+                    await _account.CreateAsync(account);
+
+
+                    TransactionType transactionType = new()
+                    {
+                        Id = new Guid("f219f041-ab3d-4785-8f07-a7a77a73739e"),
+                        TypeName = "Deposit"
+                    };
+
+                    //Log Transaction
+                    Transaction transaction = new()
+                    {
+                        Amount = customerToCreate.OpeningBalance,
+                        Description = $"{customerToCreate.FirstName} {customerToCreate.LastName} thank you for opening a new account with us.",
+                        TransactionDate = DateTime.Now,
+                        AccountId = account.Id,
+                        // The Transaction Type should be added.
+                        TransactionTypeId = transactionType.Id
+
+                    };
+                    await _transaction.CreateAsync(transaction);
+                }
+
+                //Log to AuditLog Table
+                //AuditLog auditLog = new()
+                //{
+
+                //};
+
+                //Return result.
+                return customerToCreate.Id;
             }
-
-            //Create an Account for the customer
-            Account account = new()
-            {
-                CustomerId = customerToCreate.Id,
-                Balance = customerToCreate.OpeningBalance,
-                CreatedDate = DateTime.Now,
-                BranchId = branch.Id,
-            };
-            await _account.CreateAsync(account);
-
-            TransactionType transactionType = new()
-            {
-                Id = new Guid("f219f041-ab3d-4785-8f07-a7a77a73739e"),
-                TypeName = "Deposit"
-            };
-            
-            //Log Transaction
-            Transaction transaction = new()
-            {
-                Amount = customerToCreate.OpeningBalance,
-                Description = $"{customerToCreate.FirstName} {customerToCreate.LastName} thank you for opening a new account with us.",
-                TransactionDate = DateTime.Now,
-                AccountId = account.Id,
-                // The Transaction Type should be added.
-                TransactionTypeId = transactionType.Id
-
-            };
-            await _transaction.CreateAsync(transaction);
-
-            //Log to AuditLog Table
-            AuditLog auditLog = new()
+            catch (Exception)
             {
 
-            };
-
-            //Return result.
-            return customerToCreate.Id;
+                throw;
+            }
+           
         }
     }
 }

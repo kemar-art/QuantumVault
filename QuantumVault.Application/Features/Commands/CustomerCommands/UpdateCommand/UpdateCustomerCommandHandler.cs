@@ -24,7 +24,7 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateComm
 
         public async Task<Unit> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
-            //Validate incoming data
+            // Validate incoming data
             var validator = new UpdateCustomerCommandValidator(_customer);
             var validationResult = await validator.ValidateAsync(request);
             if (validationResult.Errors.Any())
@@ -32,13 +32,22 @@ namespace QuantumVault.Application.Features.Commands.CustomerCommands.UpdateComm
                 throw new BadRequestException("Error submitting Customer for update", validationResult);
             }
 
-            //Convert incoming entity to domain entity
-            var customerToUpdate = _mapper.Map<Customer>(request);
-            //Add to database 
-            await _customer.UpdateAsync(customerToUpdate);
+            // Retrieve the existing customer from the database
+            var existingCustomer = await _customer.GetByIdAsync(request.Id);
+            if (existingCustomer == null)
+            {
+                throw new NotFoundException(nameof(Customer), request.Id);
+            }
 
-            //Return result.
+            // Update the existing customer with the new values
+            _mapper.Map(request, existingCustomer);
+
+            // Save the updated customer
+            await _customer.UpdateAsync(existingCustomer);
+
+            // Return result.
             return Unit.Value;
         }
+
     }
 }

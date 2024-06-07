@@ -7,5 +7,6 @@ using System.Threading.Tasks;
 
 namespace QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer
 {
-    public record CustomerQuery(Guid Id) : IRequest<CustomerDTO>;
+    public record CustomerQuery(Guid Id, string? Email, string? AccountNumber) : IRequest<CustomerDTO>;
+
 }

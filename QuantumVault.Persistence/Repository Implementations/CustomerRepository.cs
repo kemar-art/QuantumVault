@@ -14,5 +14,18 @@ namespace QuantumVault.Persistence.Repository_Implementations
         public CustomerRepository(QuantumVaultDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task GetByAccountNumberAsync(string accountNumber)
+        {
+            if (string.IsNullOrEmpty(accountNumber))
+           await _dbContext.Accounts.FindAsync(accountNumber);
+
+            return;
+        }
+
+        public Task GetByEmailAsync(string email)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

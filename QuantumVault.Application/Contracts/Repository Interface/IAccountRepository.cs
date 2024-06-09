@@ -9,5 +9,6 @@ namespace QuantumVault.Application.Contracts.Repository_Interface
 {
     public interface IAccountRepository : IGenericRepository<Account>
     {
+        Task<int> GetByAccountNumberAsync(int accountNumber);
     }
 }

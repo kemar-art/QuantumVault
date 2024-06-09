@@ -9,7 +9,7 @@ namespace QuantumVault.Application.Contracts.Repository_Interface
 {
     public interface ICustomerRepository : IGenericRepository<Customer>
     {
-        Task GetByEmailAsync(string email);
-        Task GetByAccountNumberAsync(string accountNumber);
+        Task<Customer> GetByEmailAsync(string email);
+        Task<Customer> GetByAccountNumberAsync(int? accountNumber);
     }
 }

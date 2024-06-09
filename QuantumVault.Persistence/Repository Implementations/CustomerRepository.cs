@@ -1,4 +1,6 @@
-﻿using QuantumVault.Application.Contracts.Repository_Interface;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using QuantumVault.Application.Contracts.Repository_Interface;
 using QuantumVault.Domain;
 using QuantumVault.Persistence.DatabaseContext;
 using System;
@@ -11,21 +13,33 @@ namespace QuantumVault.Persistence.Repository_Implementations
 {
     public class CustomerRepository : GenericRepository<Customer>, ICustomerRepository
     {
-        public CustomerRepository(QuantumVaultDbContext dbContext) : base(dbContext)
+        private readonly IMapper _mapper;
+
+        public CustomerRepository(QuantumVaultDbContext dbContext, IMapper mapper) : base(dbContext)
         {
+            _mapper = mapper;
         }
 
-        public async Task GetByAccountNumberAsync(string accountNumber)
+        public async Task<Customer> GetByAccountNumberAsync(int? accountNumber)
         {
-            if (string.IsNullOrEmpty(accountNumber))
-           await _dbContext.Accounts.FindAsync(accountNumber);
+            if (accountNumber == null)
+                return null;
 
-            return;
+            return await _dbContext.Customers
+                .Include(c => c.Accounts)
+                .ThenInclude(a => a.Branch)
+                .FirstOrDefaultAsync(c => c.Accounts.Any(a => a.AccountNumber == accountNumber));
         }
 
-        public Task GetByEmailAsync(string email)
+
+        public async Task<Customer> GetByEmailAsync(string email)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Customers
+                .Include(c => c.Accounts)
+                .ThenInclude(a => a.Branch)
+                .FirstOrDefaultAsync(e => e.Email == email);
         }
+
     }
 }
+

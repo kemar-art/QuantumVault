@@ -12,8 +12,8 @@ using QuantumVault.Persistence.DatabaseContext;
 namespace QuantumVault.Persistence.Migrations
 {
     [DbContext(typeof(QuantumVaultDbContext))]
-    [Migration("20240607201401_initail")]
-    partial class initail
+    [Migration("20240608022301_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

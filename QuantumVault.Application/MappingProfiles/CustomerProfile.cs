@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using QuantumVault.Application.Features.Commands.CustomerCommands.CreateCommand;
 using QuantumVault.Application.Features.Commands.CustomerCommands.UpdateCommand;
+using QuantumVault.Application.Features.Queries.AccountsQuery.GetAccount;
 using QuantumVault.Application.Features.Queries.CustomerQuery.GetAllCustomers;
 using QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer;
 using QuantumVault.Domain;
@@ -16,10 +17,17 @@ namespace QuantumVault.Application.MappingProfiles
     {
         public CustomerProfile()
         {
-            CreateMap<Customer, CustomerDTO>().ReverseMap();
+            CreateMap<Customer, CustomerDTO>().ReverseMap()
+           .ForMember(dest => dest.Accounts, opt => opt.MapFrom(src => src.Accounts));
+
+
             CreateMap<Customer, AllCustomersDTO>().ReverseMap();
             CreateMap<Customer, CreateCustomerCommand>().ReverseMap();
             CreateMap<Customer, UpdateCustomerCommand>().ReverseMap();
+
+
+            CreateMap<Account, CustomerAccountDTO>()
+            .ForMember(dest => dest.BranchName, opt => opt.MapFrom(src => src.Branch.BranchName));
         }
     }
 }

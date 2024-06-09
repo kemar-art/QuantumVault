@@ -5,6 +5,7 @@ using QuantumVault.Application.Features.Commands.CustomerCommands.DeleteCustomer
 using QuantumVault.Application.Features.Commands.CustomerCommands.UpdateCommand;
 using QuantumVault.Application.Features.Queries.CustomerQuery.GetAllCustomers;
 using QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer;
+using QuantumVault.Domain;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,16 +31,24 @@ namespace QuantumVault.API.Controllers
         }
 
         // GET api/<CustomersController>/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerDTO>> Get(Guid id)
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<CustomerDTO>> Get(Guid id)
+        //{
+        //    var getCustomer = await _mediator.Send(new CustomerQuery(id));
+        //    return Ok(getCustomer);
+        //}
+        [HttpGet("search")]
+        public async Task<ActionResult<CustomerDTO>> Get(string? email, int accountNumber)
         {
-            var getCustomer = await _mediator.Send(new CustomerQuery(id));
+            // Send the query to the mediator
+            var getCustomer = await _mediator.Send(new CustomerQuery(email, accountNumber));
             return Ok(getCustomer);
         }
 
+
         // POST api/<CustomersController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody]CreateCustomerCommand createCustomer)
+        public async Task<ActionResult> Post(CreateCustomerCommand createCustomer)
         {
             var createNewCustomer = await _mediator.Send(createCustomer);
             return CreatedAtAction(nameof(Get), new { id = createNewCustomer });

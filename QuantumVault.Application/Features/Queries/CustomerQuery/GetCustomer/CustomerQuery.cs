@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using QuantumVault.Application.Features.Queries.AccountsQuery.GetAccount;
+using QuantumVault.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,6 @@ using System.Threading.Tasks;
 
 namespace QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer
 {
-    public record CustomerQuery(Guid Id, string? Email, string? AccountNumber) : IRequest<CustomerDTO>;
+    public record CustomerQuery(string? email, int accountAccount) : IRequest<CustomerDTO>;
 
 }

@@ -25,14 +25,14 @@ namespace QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer
 
         public async Task<CustomerDTO> Handle(CustomerQuery request, CancellationToken cancellationToken)
         {
-            Customer getCustomer = null;
+            Customer? getCustomer = null;
 
             if (!string.IsNullOrEmpty(request.email))
             {
                 // Query by Email
                 getCustomer = await _customerRepository.GetByEmailAsync(request.email);
             }
-            else if (request.accountAccount != null)
+            else if (request.accountAccount != 0)
             {
                 // Query by Account Number
                 getCustomer = await _customerRepository.GetByAccountNumberAsync(request.accountAccount);

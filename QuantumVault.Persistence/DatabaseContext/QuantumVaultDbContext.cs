@@ -42,6 +42,10 @@ namespace QuantumVault.Persistence.DatabaseContext
                 .Property(a => a.Balance)
                 .HasPrecision(18, 2);
 
+            modelBuilder.Entity<Account>()
+               .Property(a => a.Deposit)
+               .HasPrecision(18, 2);
+
             modelBuilder.Entity<Customer>()
                 .Property(c => c.OpeningBalance)
                 .HasPrecision(18, 2);

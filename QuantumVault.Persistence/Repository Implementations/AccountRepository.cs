@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuantumVault.Application.Contracts.Repository_Interface;
+using QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer;
 using QuantumVault.Domain;
 using QuantumVault.Persistence.DatabaseContext;
 using System;
@@ -16,6 +17,8 @@ namespace QuantumVault.Persistence.Repository_Implementations
         {
         }
 
+
+
         public async Task<int> GetByAccountNumberAsync(int accountNumber)
         {
             var account = await _dbContext.Accounts.FirstOrDefaultAsync(a  => a.AccountNumber == accountNumber);
@@ -25,5 +28,25 @@ namespace QuantumVault.Persistence.Repository_Implementations
             }
             return 0;
         }
+
+        public async Task<decimal> UpdateCustomerAccount(Guid? id, int? accountNumber, decimal? depositAmount)
+        {
+            if (accountNumber == null || depositAmount == null)
+            {
+                throw new ArgumentException("Account number and deposit amount must be provided.");
+            }
+
+            var accountToUpdate = await _dbContext.Accounts.FirstOrDefaultAsync(a => a.AccountNumber == accountNumber.Value && a.Id == id);
+            if (accountToUpdate == null)
+            {
+                throw new InvalidOperationException("Account not found.");
+            }
+
+            accountToUpdate.Balance += depositAmount.Value;
+            //await _dbContext.SaveChangesAsync();
+            return accountToUpdate.Balance;
+        }
+
+
     }
 }

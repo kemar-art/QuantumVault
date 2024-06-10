@@ -1,4 +1,5 @@
-﻿using QuantumVault.Domain;
+﻿using QuantumVault.Application.Features.Queries.CustomerQuery.GetCustomer;
+using QuantumVault.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace QuantumVault.Application.Contracts.Repository_Interface
     public interface IAccountRepository : IGenericRepository<Account>
     {
         Task<int> GetByAccountNumberAsync(int accountNumber);
+        Task<decimal> UpdateCustomerAccount(Guid? id, int? accountNumber, decimal? depositAmount);
     }
 }

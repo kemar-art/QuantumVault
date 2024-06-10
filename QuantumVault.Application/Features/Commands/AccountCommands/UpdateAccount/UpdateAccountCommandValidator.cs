@@ -16,35 +16,30 @@ namespace QuantumVault.Application.Features.Commands.AccountCommands.UpdateAccou
         {
             _account = account;
 
-            RuleFor(p => p.Id)
-               .NotNull()
-               .MustAsync(FormIdMustExist)
-               .WithMessage("The specified condition was not met for {PropertyName} with value {PropertyValue}.");
+            //RuleFor(p => p.Id)
+            //   .NotNull()
+            //   .MustAsync(FormIdMustExist)
+            //   .WithMessage("The specified condition was not met for {PropertyName} with value {PropertyValue}.");
 
-            RuleFor(p => p.AccountNumber)
-               .NotEmpty()
-               .WithMessage("{PropertyName} is required.")
-               .NotNull();
+            //RuleFor(p => p.Balance)
+            //   .NotEmpty()
+            //   .WithMessage("{PropertyName} is required.")
+            //   .NotNull();
 
-            RuleFor(p => p.Balance)
-               .NotEmpty()
-               .WithMessage("{PropertyName} is required.")
-               .NotNull();
+            //RuleFor(p => p.CreatedDate)
+            //   .NotEmpty()
+            //   .WithMessage("{PropertyName} is required.")
+            //   .NotNull();
 
-            RuleFor(p => p.CreatedDate)
-               .NotEmpty()
-               .WithMessage("{PropertyName} is required.")
-               .NotNull();
+            //RuleFor(p => p.CustomerId)
+            //   .NotEmpty()
+            //   .WithMessage("{PropertyName} is required.")
+            //   .NotNull();
 
-            RuleFor(p => p.CustomerId)
-               .NotEmpty()
-               .WithMessage("{PropertyName} is required.")
-               .NotNull();
-
-            RuleFor(p => p.AccountTypeId)
-               .NotEmpty()
-               .WithMessage("{PropertyName} is required.")
-               .NotNull();
+            //RuleFor(p => p.AccountTypeId)
+            //   .NotEmpty()
+            //   .WithMessage("{PropertyName} is required.")
+            //   .NotNull();
         }
 
         private async Task<bool> FormIdMustExist(Guid guidId, CancellationToken token)

@@ -25,6 +25,8 @@ namespace QuantumVault.Application.Features.Commands.AccountCommands.UpdateAccou
 
         public async Task<Unit> Handle(UpdateAccountCommand request, CancellationToken cancellationToken)
         {
+
+
             //Validate incoming data
             var validator = new UpdateAccountCommandValidator(_account);
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
@@ -32,6 +34,8 @@ namespace QuantumVault.Application.Features.Commands.AccountCommands.UpdateAccou
             {
                 throw new BadRequestException("Error updating Account", validationResult);
             }
+
+            await _account.UpdateCustomerAccount(request.Id, request.AccountNumber, request.Deposit);
 
             //Convert incoming entity to domain entity
             var accountToUpdate = _mapper.Map<Account>(request);

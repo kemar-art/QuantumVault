@@ -37,6 +37,8 @@ namespace QuantumVault.API.Controllers
         //    var getCustomer = await _mediator.Send(new CustomerQuery(id));
         //    return Ok(getCustomer);
         //}
+
+        // GET: api/customers/search?email={email}&accountNumber={accountNumber}
         [HttpGet("search")]
         public async Task<ActionResult<CustomerDTO>> Get(string? email, int accountNumber)
         {

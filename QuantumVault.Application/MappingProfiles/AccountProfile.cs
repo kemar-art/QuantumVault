@@ -17,9 +17,11 @@ namespace QuantumVault.Application.MappingProfiles
         public AccountProfile()
         {
             CreateMap<Account, AccountDTO>().ReverseMap();
+            CreateMap<Account, UpdateAccountDTO>().ReverseMap();
             CreateMap<Account, AllAccountDTO>().ReverseMap();
             CreateMap<Account, CreateAccountCommand>().ReverseMap();
             CreateMap<Account, UpdateAccountCommand>().ReverseMap();
+            CreateMap<UpdateAccountDTO, UpdateAccountCommand>().ReverseMap();
         }
     }
 }

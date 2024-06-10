@@ -14,6 +14,7 @@ public class Account
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int AccountNumber { get; set; }
     public decimal Balance { get; set; }
+    public decimal Deposit { get; set; }
     public DateTime CreatedDate { get; set; }
 
     [ForeignKey(nameof(CustomerId))] 

@@ -29,7 +29,7 @@ namespace QuantumVault.Persistence.Repository_Implementations
             return 0;
         }
 
-        public async Task<decimal> UpdateCustomerAccount(Guid? id, int? accountNumber, decimal? depositAmount)
+        public async Task<Account> UpdateCustomerAccount(Guid? id, int? accountNumber, decimal? depositAmount)
         {
             if (accountNumber == null || depositAmount == null)
             {
@@ -44,7 +44,7 @@ namespace QuantumVault.Persistence.Repository_Implementations
 
             accountToUpdate.Balance += depositAmount.Value;
             //await _dbContext.SaveChangesAsync();
-            return accountToUpdate.Balance;
+            return accountToUpdate;
         }
 
 
